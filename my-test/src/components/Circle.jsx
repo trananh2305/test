@@ -8,11 +8,10 @@ const Circle = ({
   isCorrect,
   isAuto,
   nextPoint,
-  isRestart
+  isRestart,
 }) => {
   const [time, setTime] = useState(3);
   const [isClicked, setIsClicked] = useState(false);
-
 
   useEffect(() => {
     if (isAuto) {
@@ -27,8 +26,8 @@ const Circle = ({
 
   useEffect(() => {
     setTime(3);
-    setIsClicked(false)
-  },[isRestart])
+    setIsClicked(false);
+  }, [isRestart]);
 
   useEffect(() => {
     let timer;
@@ -49,7 +48,9 @@ const Circle = ({
 
   return (
     <button
-      className="absolute border w-8 h-8 rounded-full border-red-700 focus:bg-red-200 hover:cursor-pointer"
+      className={`absolute border w-10 h-10 rounded-full border-red-700 focus:bg-red-200 hover:cursor-pointer flex flex-col  ${
+        isClicked ? "bg-amber-700" : ""
+      }`}
       style={{ top: `${y}px`, left: `${x}px`, opacity: time / 3 }}
       onClick={() => {
         setIsClicked(true);
@@ -57,7 +58,7 @@ const Circle = ({
       disabled={!isCorrect || isClicked}
     >
       {id}
-      <span className="text-xs text-slate-500">{time.toFixed(1)}</span>
+      <span className="text-[7px] text-slate-500">{time.toFixed(1)}</span>
     </button>
   );
 };

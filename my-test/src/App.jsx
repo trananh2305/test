@@ -144,7 +144,7 @@ function App() {
             </button>
           )}
         </div>
-        <div className="w-[450px] h-[450px] border-2 relative">
+        <div className="w-[450px] h-[450px] border-2 relative ">
           {isPlay &&
             points.map((point) => (
               <Circle
