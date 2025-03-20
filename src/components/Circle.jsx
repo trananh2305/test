@@ -46,6 +46,7 @@ const Circle = ({
     return () => clearInterval(timer);
   }, [isClicked, isAuto]);
 
+
   return (
     <button
       className={`absolute border w-10 h-10 rounded-full border-red-700 focus:bg-red-200 hover:cursor-pointer flex flex-col  ${

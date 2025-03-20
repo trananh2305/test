@@ -45,9 +45,8 @@ function App() {
   const handleClickCircle = useCallback(
     (id) => {
       if (id !== nextPoint) {
-        setIsCorrect(false);
-      }
-      if (id === nextPoint) {
+        return setIsCorrect(false);
+      } else if (id === nextPoint) {
         handleRemove(id);
         if (nextPoint == inputPoint) {
           setIsFinished(true);
@@ -58,21 +57,6 @@ function App() {
     [nextPoint]
   );
 
-  // useEffect(() => {
-  //     if (!isAuto || !isCorrect || isFinished || points.length === 0) return;
-
-  //     let index = 0;
-  //     const interval = setTimeout(() => {
-  //       if (index >= points.length || !isAuto) {
-  //         clearInterval(interval);
-  //         return;
-  //       }
-  //       handleClickCircle(points[index].id);
-  //       index++;
-  //     }, 1000);
-
-  //     return () => clearTimeout(interval);
-  //   }, [isAuto, isCorrect, isFinished, points]);
 
   return (
     <div className="w-screen h-screen flex justify-center items-center">
